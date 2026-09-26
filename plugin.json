@@ -1,0 +1,20 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "kiro-2d-game-power",
+  "version": "1.0.0",
+  "description": "Design, build, and playtest small, polished 2D browser games with focused gameplay and real browser checks.",
+  "author": {
+    "name": "flatsponge",
+    "url": "https://github.com/flatsponge"
+  },
+  "keywords": [
+    "2d game",
+    "browser game",
+    "canvas game",
+    "arcade game",
+    "game prototype",
+    "game testing",
+    "playtest"
+  ],
+  "license": "MIT"
+}

@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<title>Tiny game fixture</title>
+<style>
+  body { font-family: sans-serif; margin: 20px; }
+  canvas { display: block; width: min(480px, 100%); border: 1px solid #333; }
+</style>
+<h1>Tiny game</h1>
+<button id="start">Start</button>
+<button id="restart">Restart</button>
+<button id="delayed">Delayed update</button>
+<button id="error">Throw error</button>
+<p id="status">ready</p>
+<p id="score">0</p>
+<p id="layout">desktop</p>
+<canvas id="game" width="480" height="240" tabindex="0" aria-label="Game board"></canvas>
+<script>
+  const canvas = document.querySelector('#game');
+  const context = canvas.getContext('2d');
+  let score = 0;
+  let started = false;
+
+  function draw() {
+    context.fillStyle = '#ddeffd';
+    context.fillRect(0, 0, canvas.width, canvas.height);
+    context.fillStyle = '#3554ba';
+    context.fillRect(30 + score * 30, 90, 36, 36);
+  }
+
+  function layout() {
+    document.querySelector('#layout').textContent = innerWidth <= 480 ? 'mobile' : 'desktop';
+  }
+
+  document.querySelector('#start').addEventListener('click', () => {
+    started = true;
+    document.querySelector('#status').textContent = 'playing';
+    canvas.focus();
+  });
+  document.querySelector('#restart').addEventListener('click', () => {
+    started = false;
+    score = 0;
+    document.querySelector('#score').textContent = '0';
+    document.querySelector('#status').textContent = 'ready';
+    draw();
+  });
+  document.querySelector('#delayed').addEventListener('click', () => {
+    setTimeout(() => { document.querySelector('#status').textContent = 'delayed'; }, 650);
+  });
+  canvas.addEventListener('keydown', event => {
+    if (!started || event.key !== 'ArrowRight') return;
+    score++;
+    document.querySelector('#score').textContent = String(score);
+    if (score >= 3) {
+      started = false;
+      document.querySelector('#status').textContent = 'won';
+    }
+    draw();
+  });
+  document.querySelector('#error').addEventListener('click', () => {
+    throw new Error('fixture game crash');
+  });
+  addEventListener('resize', layout);
+  layout();
+  draw();
+</script>
+</html>

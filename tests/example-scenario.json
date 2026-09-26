@@ -1,0 +1,18 @@
+{
+  "viewport": { "width": 960, "height": 540 },
+  "readySelector": "#game",
+  "steps": [
+    { "name": "start", "action": "click", "selector": "#start" },
+    { "name": "playing", "action": "expect", "selector": "#status", "text": "playing" },
+    { "name": "move to result", "action": "key", "key": "ArrowRight", "count": 3, "focus": "#game" },
+    { "name": "result reached", "action": "expect", "selector": "#status", "text": "won" },
+    { "name": "final score", "action": "expect", "selector": "#score", "text": "3" },
+    { "name": "restart", "action": "click", "selector": "#restart" },
+    { "name": "score reset", "action": "expect", "selector": "#score", "text": "0" },
+    { "name": "ready again", "action": "expect", "selector": "#status", "text": "ready" },
+    { "name": "trigger delayed UI", "action": "click", "selector": "#delayed" },
+    { "name": "delayed UI settled", "action": "expect", "selector": "#status", "text": "delayed" },
+    { "name": "mobile viewport", "action": "resize", "width": 390, "height": 844 },
+    { "name": "mobile layout", "action": "expect", "selector": "#layout", "text": "mobile" }
+  ]
+}
