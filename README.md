@@ -4,9 +4,9 @@ A small Kiro Power for making **playable, polished 2D browser games** and testin
 
 ## Install
 
-Unzip the archive, then in Kiro IDE open **Powers → Add Custom Power → Import power from a folder**. Select the extracted directory that contains `plugin.json` at its top level.
-
-If you publish the extracted contents in the root of a public GitHub repository, others can instead use **Import power from GitHub** with that repository's URL. Update the manifest's `repository` and `homepage` fields to your actual URL if you add them.
+in Kiro IDE open **Powers → Add Custom Power → Import power from a folder**. Select the directory that contains `plugin.json` at its top level.
+or
+use **Import power from GitHub** with this repository's URL. 
 
 This is an [Agent Plugins 1.0](https://agent-plugins.org/specification) Power and has no login, API key or MCP server to configure. It bundles skills and local resources. A new project can be plain HTML/CSS/JS; an existing project can keep its engine.
 
